@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>¡Lo lograste, Javi!</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;1,9..144,400;1,9..144,800&family=Pinyon+Script&family=Outfit:wght@300;400;600&display=swap">
+<style>
+/* Layout: noche de licenciatura — cielo ciruela con brillo dorado; héroe con birrete, carta, sobres "ábrela cuando…", cierre con confeti */
+:root{
+  --night:#22091f;
+  --plum:#3b1238;
+  --wine:#5c1a4a;
+  --gold:#f2c76b;
+  --gold-soft:#f8e3b0;
+  --rose:#ff8fb3;
+  --ink:#fbeef4;
+  --muted:#d9b8cb;
+  --paper:#fff7ee;
+  --paper-ink:#3a1730;
+  --display:"Fraunces", Georgia, "Times New Roman", serif;
+  --script:"Pinyon Script", "Brush Script MT", cursive;
+  --body:"Outfit", system-ui, -apple-system, "Segoe UI", sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--night);color:var(--ink);
+  font-family:var(--body);font-size:1.0625rem;line-height:1.65;
+  background-image:
+    radial-gradient(1200px 600px at 80% -10%, rgba(255,143,179,.28), transparent 60%),
+    radial-gradient(900px 500px at 0% 20%, rgba(242,199,107,.16), transparent 60%),
+    linear-gradient(180deg, var(--plum) 0%, var(--night) 70%);
+  background-attachment:fixed;
+  overflow-x:hidden;
+}
+#fx{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:50}
+.wrap{max-width:62rem;margin:0 auto;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+section{padding-block:clamp(3rem,8vw,6rem)}
+
+/* estrellas */
+.stars{position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:
+    radial-gradient(1.5px 1.5px at 10% 20%, var(--gold-soft), transparent),
+    radial-gradient(1px 1px at 30% 70%, var(--ink), transparent),
+    radial-gradient(1.5px 1.5px at 55% 15%, var(--ink), transparent),
+    radial-gradient(1px 1px at 75% 55%, var(--gold-soft), transparent),
+    radial-gradient(2px 2px at 90% 30%, var(--ink), transparent),
+    radial-gradient(1px 1px at 20% 90%, var(--gold-soft), transparent),
+    radial-gradient(1.5px 1.5px at 65% 85%, var(--ink), transparent);
+  opacity:.7;animation:twinkle 5s ease-in-out infinite alternate}
+@keyframes twinkle{to{opacity:.35}}
+main{position:relative;z-index:1}
+
+/* HERO */
+.hero{text-align:center;padding-block:clamp(3.5rem,10vw,7rem) clamp(2rem,6vw,4rem)}
+.eyebrow{display:inline-flex;gap:.6rem;align-items:center;font-size:.8rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);font-weight:600}
+.eyebrow::before,.eyebrow::after{content:"";width:2.2rem;height:1px;background:linear-gradient(90deg,transparent,var(--gold))}
+.eyebrow::after{transform:scaleX(-1)}
+.cap{width:clamp(7rem,22vw,10rem);margin:1.5rem auto .5rem;display:block;filter:drop-shadow(0 12px 30px rgba(242,199,107,.35));animation:float 4s ease-in-out infinite;cursor:pointer}
+@keyframes float{50%{transform:translateY(-10px) rotate(-4deg)}}
+h1{font-family:var(--display);font-weight:800;font-style:italic;font-size:clamp(2.8rem,10vw,6.5rem);line-height:.95;margin:.4rem 0 0;letter-spacing:-.02em;text-wrap:balance;
+  background:linear-gradient(100deg,var(--gold-soft) 0%,var(--gold) 35%,var(--rose) 70%,var(--gold-soft) 100%);background-size:200% auto;
+  -webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 6s linear infinite}
+@keyframes shine{to{background-position:200% center}}
+.name{display:block;font-family:var(--script);font-style:normal;font-weight:400;font-size:clamp(3.2rem,12vw,7rem);line-height:1.1;margin-top:.2rem;padding-bottom:.15em}
+.lead{max-width:36rem;margin:1.4rem auto 2rem;color:var(--muted);font-size:clamp(1.05rem,2.4vw,1.25rem);text-wrap:balance}
+.btn{font:inherit;font-weight:600;letter-spacing:.04em;border:0;cursor:pointer;color:var(--paper-ink);
+  background:linear-gradient(135deg,var(--gold-soft),var(--gold));padding:.95rem 1.8rem;border-radius:999px;
+  box-shadow:0 10px 30px rgba(242,199,107,.35), inset 0 -2px 0 rgba(0,0,0,.12);transition:transform .2s, box-shadow .2s}
+.btn:hover{transform:translateY(-2px) scale(1.03);box-shadow:0 14px 40px rgba(242,199,107,.5)}
+.btn:focus-visible,.env:focus-visible{outline:3px solid var(--rose);outline-offset:4px}
+
+/* NÚMEROS */
+.label{font-size:.78rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);font-weight:600;margin:0 0 .6rem}
+h2{font-family:var(--display);font-weight:700;font-size:clamp(2rem,5.5vw,3.2rem);line-height:1.05;margin:0 0 2rem;text-wrap:balance}
+h2 em{font-weight:400;color:var(--rose)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(242,199,107,.25);border:1px solid rgba(242,199,107,.25);border-radius:1.25rem;overflow:hidden}
+.stat{background:rgba(34,9,31,.85);padding:1.6rem 1.2rem;min-width:0}
+.stat b{display:block;font-family:var(--display);font-size:clamp(2.2rem,6vw,3.2rem);font-weight:700;color:var(--gold-soft);line-height:1;font-variant-numeric:tabular-nums}
+.stat span{display:block;margin-top:.5rem;color:var(--muted);font-size:.95rem;line-height:1.4}
+.note{color:var(--muted);font-size:.85rem;margin-top:.9rem;opacity:.8}
+
+/* CARTA */
+.letter{position:relative;background:var(--paper);color:var(--paper-ink);border-radius:.4rem;
+  padding:clamp(2rem,6vw,4rem) clamp(1.4rem,6vw,4.5rem);max-width:44rem;margin:0 auto;
+  box-shadow:0 30px 80px rgba(0,0,0,.45);transform:rotate(-.6deg);
+  background-image:repeating-linear-gradient(180deg,transparent 0 2.05rem,rgba(92,26,74,.08) 2.05rem calc(2.05rem + 1px))}
+.letter::before{content:"";position:absolute;top:-14px;left:50%;width:7rem;height:1.8rem;transform:translateX(-50%) rotate(2deg);background:rgba(255,143,179,.55)}
+.letter .hi{font-family:var(--script);font-size:clamp(2.4rem,7vw,3.4rem);line-height:1.1;margin:0 0 1rem;color:var(--wine)}
+.letter p{font-family:var(--display);font-size:clamp(1.05rem,2.3vw,1.2rem);line-height:2.05rem;margin:0 0 2.05rem;max-width:65ch}
+.letter .sign{font-family:var(--script);font-size:2.2rem;color:var(--wine);text-align:right;margin:0}
+.seal{position:absolute;right:clamp(.8rem,4vw,2.4rem);bottom:-1.6rem;width:4.2rem;height:4.2rem;border-radius:50%;
+  background:radial-gradient(circle at 35% 30%,#d14b7d,#8d1f4f 70%);display:grid;place-items:center;color:var(--gold-soft);
+  font-family:var(--display);font-style:italic;font-weight:800;font-size:1.05rem;box-shadow:0 6px 16px rgba(0,0,0,.35)}
+
+/* SOBRES */
+.envs{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem}
+.env{position:relative;font:inherit;text-align:left;cursor:pointer;border:1px solid rgba(242,199,107,.35);color:var(--ink);
+  background:linear-gradient(160deg,rgba(92,26,74,.75),rgba(34,9,31,.9));border-radius:1rem;padding:1.4rem 1.3rem 1.3rem;
+  min-height:11.5rem;display:flex;flex-direction:column;gap:.7rem;transition:transform .25s, border-color .25s, background .3s;min-width:0}
+.env:hover{transform:translateY(-4px) rotate(-.5deg);border-color:var(--gold)}
+.env .flap{font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:600}
+.env .when{font-family:var(--display);font-size:1.3rem;line-height:1.2;font-weight:700}
+.env .msg{color:var(--paper-ink);font-family:var(--display);font-style:italic;font-size:1.02rem;line-height:1.5}
+.env .tap{margin-top:auto;color:var(--muted);font-size:.85rem}
+.env[aria-expanded="true"]{background:var(--paper);border-color:var(--paper);color:var(--paper-ink);transform:rotate(.6deg)}
+.env[aria-expanded="true"] .flap{color:var(--wine)}
+.env[aria-expanded="true"] .tap{display:none}
+
+/* CIERRE */
+.finale{text-align:center}
+.finale .big{font-family:var(--script);font-size:clamp(3rem,11vw,6rem);line-height:1.1;color:var(--gold-soft);margin:0 0 .4rem}
+.finale p{color:var(--muted);max-width:32rem;margin:0 auto 2rem}
+footer{text-align:center;color:var(--muted);font-size:.85rem;letter-spacing:.2em;text-transform:uppercase;padding-block:2rem 3rem;opacity:.75}
+
+@media (max-width:760px){
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .envs{grid-template-columns:1fr 1fr}
+}
+@media (max-width:480px){
+  .envs{grid-template-columns:1fr}
+  .env{min-height:auto}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+
+<canvas id="fx" aria-hidden="true"></canvas>
+<div class="stars" aria-hidden="true"></div>
+
+<main>
+  <header class="hero wrap">
+    <span class="eyebrow">Licenciatura · Generación 2026</span>
+    <svg class="cap" id="cap" viewBox="0 0 120 100" role="img" aria-label="Birrete de graduación">
+      <defs>
+        <linearGradient id="g" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#4a1640"/><stop offset="1" stop-color="#1c0619"/></linearGradient>
+        <linearGradient id="gd" x1="0" x2="1"><stop offset="0" stop-color="#f8e3b0"/><stop offset="1" stop-color="#f2c76b"/></linearGradient>
+      </defs>
+      <path d="M30 48 v20 c0 8 60 8 60 0 v-20" fill="url(#g)" stroke="#f2c76b" stroke-width="1.5"/>
+      <polygon points="60,18 112,40 60,62 8,40" fill="url(#g)" stroke="#f2c76b" stroke-width="2"/>
+      <circle cx="60" cy="40" r="3.5" fill="url(#gd)"/>
+      <path d="M60 40 Q 92 46 96 52 L 96 74" fill="none" stroke="url(#gd)" stroke-width="2.2"/>
+      <path d="M92 74 h8 l-1.5 14 h-5 z" fill="url(#gd)"/>
+    </svg>
+    <h1>¡Lo lograste,<span class="name" id="name">Javi!</span></h1>
+    <p class="lead">Terminaste cuarto medio. Trece años de colegio, mochilas, pruebas, recreos y amistades caben en este momento. Hoy toca celebrarte.</p>
+    <button class="btn" id="throw" type="button">Lanzar los birretes 🎓</button>
+  </header>
+
+  <section class="wrap" aria-labelledby="h-num">
+    <p class="label">Tu etapa escolar en números</p>
+    <h2 id="h-num">De kínder a <em>4° medio</em></h2>
+    <div class="stats">
+      <div class="stat"><b data-count="13">13</b><span>años de colegio, desde kínder</span></div>
+      <div class="stat"><b data-count="2300">~2.300</b><span>días de clases, uniforme incluido</span></div>
+      <div class="stat"><b>∞</b><span>pruebas, disertaciones y trabajos en grupo</span></div>
+      <div class="stat"><b data-count="1">1</b><span>licenciatura que nadie te va a quitar</span></div>
+    </div>
+    <p class="note">Los días son aproximados: unos 180 días de clases por año en Chile.</p>
+  </section>
+
+  <section class="wrap" aria-labelledby="h-carta">
+    <p class="label" style="text-align:center">Una carta para ti</p>
+    <h2 id="h-carta" style="text-align:center">Lo que quería <em>decirte</em></h2>
+    <article class="letter">
+      <p class="hi">Querida Javi,</p>
+      <p>Te escribo esto porque hay cosas que en persona no te digo nunca, y hoy es el día perfecto para decírtelas.</p>
+      <p>Todavía me acuerdo de cuando entraste a kínder, chiquitita, con el delantal nuevo y una mochila más grande que tú. Pasaron trece años volando. Ahora te miro y veo a alguien que creció un montón: más segura, más divertida, más tú.</p>
+      <p>Sé que el camino no fue perfecto. Hubo pruebas que salieron mal, noches estudiando a última hora, amistades que cambiaron y días en que no querías ni levantarte. Igual seguiste. Y eso, Javi, vale mucho más que cualquier promedio.</p>
+      <p>Ahora se viene algo nuevo, y es normal que dé un poco de miedo. Puede ser la PAES, la universidad, un instituto, trabajar, viajar o darte un tiempo para descubrir qué te gusta. No hay un solo camino correcto. No tienes que tenerlo todo claro hoy. Solo tienes que ir paso a paso, como lo hiciste hasta ahora.</p>
+      <p>Y en cada paso me vas a tener a mí. Para celebrar cuando te vaya bien, para acompañarte cuando no, y para recordarte de qué estás hecha cuando se te olvide. Eso no cambia con ninguna graduación.</p>
+      <p>Gracias por ser mi hermana. Te admiro de verdad, aunque a veces te moleste más de lo que debería.</p>
+      <p>Así que hoy disfruta todo: la ceremonia, las fotos, los abrazos y la fiesta hasta tarde. Te lo ganaste.</p>
+      <p class="sign">Te quiero infinito ♥<br>Amir</p>
+      <p style="margin:1rem 0 0;font-size:1rem">P.D.: Guarda esta página. Algún día la vas a releer y te vas a acordar de lo grande que fue este momento.</p>
+      <div class="seal" aria-hidden="true">2026</div>
+    </article>
+  </section>
+
+  <section class="wrap" aria-labelledby="h-sobres">
+    <p class="label">Para guardar</p>
+    <h2 id="h-sobres">Ábrela <em>cuando…</em></h2>
+    <div class="envs" id="envs"></div>
+  </section>
+
+  <section class="wrap finale">
+    <p class="big">¡Felicidades!</p>
+    <p>Por todo lo que hiciste y todo lo que viene. El mundo no está listo para ti.</p>
+    <button class="btn" id="throw2" type="button">Una celebración más ✨</button>
+  </section>
+
+  <footer class="wrap">Para Javi, con cariño de Amir · Generación 2026</footer>
+</main>
+
+<script>
+(function(){
+  /* Nombre opcional desde el enlace: …#Sofia */
+  var h = decodeURIComponent((location.hash||"").slice(1)).replace(/-/g," ").trim();
+  if (/^[A-Za-zÁÉÍÓÚáéíóúÑñ ]{2,30}$/.test(h)) {
+    document.getElementById("name").textContent = h + "!";
+    document.querySelector(".letter .hi").textContent = "Querida " + h + ",";
+    document.title = "¡Lo lograste, " + h + "!";
+  }
+
+  /* Sobres */
+  var cards = [
+    ["Estés estresada con la PAES","Respira. Un puntaje no define quién eres. Ya demostraste que puedes con cosas difíciles, y esta es una más."],
+    ["Extrañes el colegio","Es normal. Fueron trece años, desde kínder. Escríbele a tus amigas de curso, que ellas también te extrañan."],
+    ["Dudes de ti","Relee la carta de arriba. Todo lo que dice es verdad, y lo escribí pensando en este momento."],
+    ["Logres algo grande","¡Sabía que lo ibas a hacer! Llámame altiro, que quiero ser de los primeros en celebrarte."],
+    ["Tengas un mal día","Los días malos pasan. Te invito a comer lo que tú quieras, yo pago. Esta tarjeta vale como vale."],
+    ["Quieras recordar hoy","Te licenciaste. Bailaste, reíste y cerraste una etapa enorme. Guarda esa sensación para siempre."]
+  ];
+  var box = document.getElementById("envs");
+  cards.forEach(function(c,i){
+    var b = document.createElement("button");
+    b.type="button"; b.className="env"; b.id="env-"+i; b.setAttribute("aria-expanded","false");
+    b.innerHTML = '<span class="flap">Ábrela cuando…</span><span class="when"></span><span class="tap">Toca para abrir ✉</span>';
+    b.querySelector(".when").textContent = c[0];
+    b.addEventListener("click", function(){
+      var open = b.getAttribute("aria-expanded")==="true";
+      b.setAttribute("aria-expanded", String(!open));
+      b.querySelector(".when").textContent = c[0];
+      var m = b.querySelector(".msg");
+      if (!open){ m = document.createElement("span"); m.className="msg"; m.textContent=c[1]; b.insertBefore(m, b.querySelector(".tap")); var r=b.getBoundingClientRect(); burst(r.left+r.width/2, r.top+20, 40); }
+      else if (m) m.remove();
+    });
+    box.appendChild(b);
+  });
+
+  /* Confeti y birretes */
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var cv = document.getElementById("fx"), ctx = cv.getContext("2d"), parts = [], dpr = Math.min(window.devicePixelRatio||1, 2), running=false;
+  var colors = ["#f2c76b","#f8e3b0","#ff8fb3","#fbeef4","#d14b7d","#ffd9e6"];
+  function size(){ cv.width = innerWidth*dpr; cv.height = innerHeight*dpr; ctx.setTransform(dpr,0,0,dpr,0,0); }
+  size(); addEventListener("resize", size);
+  function burst(x,y,n,caps){
+    if (reduce) return;
+    for (var i=0;i<n;i++){
+      var a = -Math.PI/2 + (Math.random()-.5)*Math.PI*1.1, s = 6+Math.random()*9;
+      parts.push({x:x,y:y,vx:Math.cos(a)*s,vy:Math.sin(a)*s,r:Math.random()*6.28,vr:(Math.random()-.5)*.3,
+        w:6+Math.random()*6,h:3+Math.random()*5,c:colors[i%colors.length],life:0,cap:caps && i%9===0});
+    }
+    if(!running){running=true;requestAnimationFrame(tick);}
+  }
+  function drawCap(p){
+    ctx.fillStyle="#2a0b27"; ctx.strokeStyle="#f2c76b"; ctx.lineWidth=1.5;
+    ctx.beginPath(); ctx.moveTo(0,-9); ctx.lineTo(18,0); ctx.lineTo(0,9); ctx.lineTo(-18,0); ctx.closePath(); ctx.fill(); ctx.stroke();
+    ctx.fillStyle="#f2c76b"; ctx.fillRect(10,2,2,12);
+  }
+  function tick(){
+    ctx.clearRect(0,0,innerWidth,innerHeight);
+    parts = parts.filter(function(p){ return p.y < innerHeight+40 && p.life < 400; });
+    parts.forEach(function(p){
+      p.life++; p.vy += .22; p.vx *= .99; p.vy *= .99; p.x += p.vx + Math.sin(p.life/12)*.6; p.y += p.vy; p.r += p.vr;
+      ctx.save(); ctx.translate(p.x,p.y); ctx.rotate(p.r);
+      if (p.cap) drawCap(p); else { ctx.fillStyle=p.c; ctx.fillRect(-p.w/2,-p.h/2,p.w,p.h*Math.abs(Math.cos(p.life/8))+1); }
+      ctx.restore();
+    });
+    if (parts.length) requestAnimationFrame(tick); else { running=false; ctx.clearRect(0,0,innerWidth,innerHeight); }
+  }
+  function celebrate(){
+    var w = innerWidth, h = innerHeight;
+    burst(w*.15, h*.95, 90, true); burst(w*.5, h*.95, 110, true); burst(w*.85, h*.95, 90, true);
+  }
+  document.getElementById("throw").addEventListener("click", celebrate);
+  document.getElementById("throw2").addEventListener("click", celebrate);
+  document.getElementById("cap").addEventListener("click", celebrate);
+  setTimeout(function(){ burst(innerWidth/2, innerHeight*.9, 120, true); }, 600);
+})();
+</script>
+</body>
+</html>
